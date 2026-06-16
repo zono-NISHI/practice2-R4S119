@@ -1,0 +1,250 @@
+  :root {
+    --cream: #F7F4EC;
+    --indigo: #1B3A4B;
+    --vermillion: #B23A2E;
+    --ink: #2E2A26;
+    --gold: #C9A063;
+    --line: #DDD6C5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Noto Sans JP', sans-serif;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===== Header / Hero ===== */
+  header {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6vh 8vw;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-kanji {
+    position: absolute;
+    right: -4vw;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Shippori Mincho', serif;
+    font-size: min(48vw, 38rem);
+    font-weight: 800;
+    color: var(--indigo);
+    opacity: 0.05;
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .eyebrow {
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.35em;
+    color: var(--vermillion);
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+  }
+
+  h1.title {
+    font-family: 'Shippori Mincho', serif;
+    font-weight: 800;
+    font-size: clamp(2.6rem, 7vw, 5.5rem);
+    color: var(--indigo);
+    line-height: 1.25;
+    letter-spacing: 0.02em;
+    max-width: 14ch;
+  }
+
+  .title small {
+    display: block;
+    font-size: 0.4em;
+    font-weight: 500;
+    color: var(--ink);
+    margin-top: 1rem;
+    letter-spacing: 0.15em;
+  }
+
+  .hero-lead {
+    margin-top: 2.5rem;
+    max-width: 38em;
+    font-size: 1.05rem;
+    color: #5c5650;
+  }
+
+  .scroll-hint {
+    margin-top: 4rem;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .scroll-hint::after {
+    content: "";
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  /* ===== Sections ===== */
+  .craft {
+    position: relative;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    border-bottom: 1px solid var(--line);
+    padding: 6rem 8vw;
+    gap: 3rem;
+  }
+
+  .craft:nth-of-type(even) {
+    background: #F1ECE0;
+  }
+
+  .craft-label {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.5em;
+    color: var(--vermillion);
+    justify-self: center;
+    padding-top: 0.5rem;
+    white-space: nowrap;
+  }
+
+  .craft-label span {
+    display: block;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-top: 1.5rem;
+  }
+
+  .craft-body {
+    max-width: 56em;
+  }
+
+  .craft-region {
+    display: inline-block;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    color: var(--indigo);
+    border: 1px solid var(--indigo);
+    border-radius: 999px;
+    padding: 0.35rem 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .craft h2 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 1.2rem;
+    line-height: 1.4;
+  }
+
+  .craft h2 .reading {
+    display: block;
+    font-size: 0.45em;
+    font-weight: 400;
+    color: var(--gold);
+    letter-spacing: 0.3em;
+    margin-bottom: 0.6rem;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+  }
+
+  .craft p {
+    font-size: 1rem;
+    color: #4a443e;
+    max-width: 42em;
+  }
+
+  .craft p + p {
+    margin-top: 1rem;
+  }
+
+  .craft-meta {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .craft-meta li {
+    list-style: none;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-size: 0.75rem;
+    color: var(--indigo);
+    background: rgba(27, 58, 75, 0.06);
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    letter-spacing: 0.1em;
+  }
+
+  /* ===== Footer ===== */
+  footer {
+    padding: 5rem 8vw;
+    text-align: center;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    color: #8a8278;
+    background: var(--indigo);
+  }
+
+  footer .mark {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.4rem;
+    color: var(--cream);
+    letter-spacing: 0.5em;
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 720px) {
+    header { padding: 8vh 6vw; min-height: 80vh; }
+    .hero-kanji { font-size: 70vw; right: -10vw; opacity: 0.06; }
+    .craft {
+      grid-template-columns: 1fr;
+      padding: 4rem 6vw;
+      gap: 1.5rem;
+    }
+    .craft-label {
+      writing-mode: horizontal-tb;
+      letter-spacing: 0.3em;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .craft-label span { margin-top: 0; }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--vermillion);
+    outline-offset: 3px;
+  }
