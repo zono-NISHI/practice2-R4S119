@@ -1,11 +1,236 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>index ページ</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界の美と伝統の探訪</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+            background-color: #fcfaf2;
+            color: #2c2c2c;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        header {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            text-align: center;
+            padding: 60px 20px;
+            border-bottom: 5px solid #9e2a2b;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            margin-bottom: 15px;
+        }
+        header p {
+            font-size: 1.1rem;
+            color: #cccccc;
+            letter-spacing: 0.1em;
+        }
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            width: 100%;
+            flex-grow: 1;
+        }
+        .intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px auto;
+            font-size: 1.1rem;
+            color: #4a4a4a;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .link-card {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            width: calc(33.333% - 20px);
+            min-width: 300px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e6e1da;
+        }
+        .link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .card-img-placeholder {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+        }
+        .bg-japan {
+            background: linear-gradient(135deg, #9e2a2b, #bd3a42);
+        }
+        .bg-kagoshima {
+            background: linear-gradient(135deg, #1f3a52, #2b5c8f);
+        }
+        .bg-western {
+            background: linear-gradient(135deg, #1b4d3e, #2c6b56);
+        }
+        .card-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card-content h2 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .card-content h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+        }
+        .link-card:nth-child(1) .card-content h2::after {
+            background-color: #9e2a2b;
+        }
+        .link-card:nth-child(2) .card-content h2::after {
+            background-color: #1f3a52;
+        }
+        .link-card:nth-child(3) .card-content h2::after {
+            background-color: #1b4d3e;
+        }
+        .card-content p {
+            color: #555555;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+        .card-btn {
+            align-self: flex-start;
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+            color: white;
+        }
+        .link-card:nth-child(1) .card-btn {
+            background-color: #9e2a2b;
+        }
+        .link-card:nth-child(1):hover .card-btn {
+            background-color: #7e2122;
+        }
+        .link-card:nth-child(2) .card-btn {
+            background-color: #1f3a52;
+        }
+        .link-card:nth-child(2):hover .card-btn {
+            background-color: #152839;
+        }
+        .link-card:nth-child(3) .card-btn {
+            background-color: #1b4d3e;
+        }
+        .link-card:nth-child(3):hover .card-btn {
+            background-color: #12362b;
+        }
+        footer {
+            background-color: #1a1a1a;
+            color: #888888;
+            text-align: center;
+            padding: 25px 20px;
+            font-size: 0.85rem;
+            margin-top: 60px;
+            border-top: 1px solid #333333;
+        }
+        @media (max-width: 1024px) {
+            .link-card {
+                width: calc(50% - 15px);
+            }
+        }
+        @media (max-width: 768px) {
+            .link-card {
+                width: 100%;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-<h1>トップページ</h1>
-<p>これは index.html のサンプルです。</p>
+    <header>
+        <h1>世界と日本の美・文学の探訪</h1>
+        <p>歴史が育んだ、洗練された技と文化の世界へ</p>
+    </header>
+
+    <main>
+        <div class="intro">
+            <p>何百年もの時を超えて受け継がれてきた数多くの伝統文化や文学作品があります。四季折々の自然、独自の風土、そして人間の内面を見つめてきた普遍的な精神性を、3つの視点からご紹介します。</p>
+        </div>
+
+        <div class="card-container">
+            <a href="history.html" class="link-card">
+                <div class="card-img-placeholder bg-japan">日本の伝統文化</div>
+                <div class="card-content">
+                    <div>
+                        <h2>日本独自の伝統と美学</h2>
+                        <p>京都の西陣織、東京の江戸切子、そして日本を代表する伝統芸能「歌舞伎」など、鹿児島を除く全国各地で独自に発展し、今なお世界を魅了し続ける5つの伝統をご紹介します。</p>
+                    </div>
+                    <span class="card-btn">サイトを見る</span>
+                </div>
+            </a>
+
+            <a href="kagoshima.html" class="link-card">
+                <div class="card-img-placeholder bg-kagoshima">鹿児島の伝統工芸</div>
+                <div class="card-content">
+                    <div>
+                        <h2>薩摩の魂が宿る至高の工芸</h2>
+                        <p>南国鹿児島の豊かな風土と歴史が育んだ、世界に誇る手織物「本場大島紬」や、極限の美しさを追求した「薩摩切子」、素朴ながら深い味わいを持つ「薩摩焼」など、至高の工芸品5選をご紹介します。</p>
+                    </div>
+                    <span class="card-btn">サイトを見る</span>
+                </div>
+            </a>
+
+            <a href="west_history.html" class="link-card">
+                <div class="card-img-placeholder bg-western">西洋文学の系譜</div>
+                <div class="card-content">
+                    <div>
+                        <h2>時代を揺るがした知の遺産</h2>
+                        <p>古代ギリシャ悲劇から、シェイクスピア、19世紀のリアル文学、そして人間の深淵を描いた近代文学まで、言葉の力で人間の真理を追究し続けた西洋文学の名作と歴史をご紹介します。</p>
+                    </div>
+                    <span class="card-btn">サイトを見る</span>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 日本の美と伝統の探訪. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
